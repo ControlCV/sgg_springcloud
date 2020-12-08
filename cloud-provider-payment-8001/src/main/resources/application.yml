@@ -26,3 +26,7 @@ eureka:
     service-url:
       #要注册到的地址
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka/
+  #设置实例化名称
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
