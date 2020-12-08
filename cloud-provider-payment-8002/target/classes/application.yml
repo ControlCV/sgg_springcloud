@@ -29,4 +29,4 @@ eureka:
   #设置实例化名称
   instance:
     instance-id: payment8002
-    prefer-ip-address: true
+    prefer-ip-address: true #在访问时显示ip

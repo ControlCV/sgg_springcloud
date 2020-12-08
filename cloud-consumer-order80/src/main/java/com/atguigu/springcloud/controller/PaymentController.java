@@ -43,8 +43,17 @@ public class PaymentController {
 
     @PostMapping("/consumer/payment/create1")
     public CommonResult<Payment> getById1(@RequestBody Payment payment){
-        System.out.println(payment);
         return restTemplate.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);
+    }
+
+    @GetMapping(value = "/payment/discovery",produces = "application/json;charset=UTF-8") //不指定produces = "application/json;charset=UTF-8"会返回xml类型的数据
+    public CommonResult<Object> discovery(){
+        Object forObject = restTemplate.getForObject(PAYMENT_URL + "/payment/discovery", Object.class);
+        CommonResult<Object> objectCommonResult = new CommonResult<>();
+        objectCommonResult.setCode(200);
+        objectCommonResult.setMessage("success");
+        objectCommonResult.setData(forObject);
+        return objectCommonResult;
     }
 
 }
